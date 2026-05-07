@@ -212,16 +212,7 @@
         /* Photos Page */
         .photos-container {
             width: 100%;
-            max-width: 900px;
-        }
-
-        .photo-upload-hint {
-            color: #fff;
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
+            max-width: 1000px;
         }
 
         .photos-grid {
@@ -236,17 +227,20 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .photo-item:hover {
             transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
         .photo-item img {
             width: 100%;
             height: 250px;
             object-fit: cover;
+            display: block;
         }
 
         /* Gift Page */
@@ -497,17 +491,22 @@
     <!-- Photos Page -->
     <div id="photos" class="page">
         <div class="photos-container">
-            <h2 style="color: #fff; font-size: 3em; margin-bottom: 20px;">📸 Photos</h2>
-            <div class="photo-upload-hint">
-                💡 Add your favorite photos! Upload image files (JPG, PNG) to the repo and they'll appear here.
-            </div>
+            <h2 style="color: #fff; font-size: 3em; margin-bottom: 30px;">📸 Laura's Memories</h2>
             <div class="photos-grid">
-                <!-- Photos will be added here -->
-                <div class="photo-item">
-                    <div style="width: 100%; height: 250px; background: rgba(255, 255, 255, 0.1); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2em;">
-                        Your photos go here! 📷
-                    </div>
-                </div>
+                <div class="photo-item"><img src="IMG_6064.HEIC" alt="Photo 1"></div>
+                <div class="photo-item"><img src="IMG_6069.HEIC" alt="Photo 2"></div>
+                <div class="photo-item"><img src="IMG_6196.HEIC" alt="Photo 3"></div>
+                <div class="photo-item"><img src="IMG_6201.HEIC" alt="Photo 4"></div>
+                <div class="photo-item"><img src="IMG_6248.HEIC" alt="Photo 5"></div>
+                <div class="photo-item"><img src="IMG_6298.HEIC" alt="Photo 6"></div>
+                <div class="photo-item"><img src="IMG_6349.HEIC" alt="Photo 7"></div>
+                <div class="photo-item"><img src="IMG_6366.HEIC" alt="Photo 8"></div>
+                <div class="photo-item"><img src="IMG_6378.HEIC" alt="Photo 9"></div>
+                <div class="photo-item"><img src="IMG_6605.HEIC" alt="Photo 10"></div>
+                <div class="photo-item"><img src="IMG_6642.HEIC" alt="Photo 11"></div>
+                <div class="photo-item"><img src="IMG_6700.HEIC" alt="Photo 12"></div>
+                <div class="photo-item"><img src="IMG_6725.HEIC" alt="Photo 13"></div>
+                <div class="photo-item"><img src="IMG_6732.HEIC" alt="Photo 14"></div>
             </div>
         </div>
     </div>
