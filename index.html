@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎂 Laura's Birthday Bash! 🎂</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 4em;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: bounce 2s infinite;
+        }
+
+        .name {
+            font-size: 3.5em;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: glow 2s infinite;
+        }
+
+        .message {
+            font-size: 2.5em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .emoji {
+            font-size: 5em;
+            animation: spin 3s linear infinite;
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes glow {
+            0%, 100% { 
+                text-shadow: 0 0 10px #FFD700, 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            50% { 
+                text-shadow: 0 0 20px #FFD700, 0 0 30px #FFA500, 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #FFD700;
+            pointer-events: none;
+        }
+
+        .cake {
+            font-size: 6em;
+            animation: wiggle 0.5s infinite;
+            margin-bottom: 30px;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        .buttons {
+            margin-top: 50px;
+        }
+
+        button {
+            background: #FFD700;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            font-weight: bold;
+            color: #333;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 HAPPY BIRTHDAY! 🎉</h1>
+        <div class="cake">🎂</div>
+        <div class="name">Laura Angelini</div>
+        <div class="message">
+            <span class="emoji">🎈</span>
+            Happy Birthday
+            <span class="emoji">🎈</span>
+        </div>
+        
+        <div class="buttons">
+            <button onclick="triggerConfetti()">🎊 Click for Fun! 🎊</button>
+        </div>
+    </div>
+
+    <script>
+        function triggerConfetti() {
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.top = '-10px';
+                confetti.style.background = ['#FFD700', '#FF6B6B', '#4ECDC4', '#FF69B4', '#00D2D3'][Math.floor(Math.random() * 5)];
+                document.body.appendChild(confetti);
+
+                let duration = Math.random() * 3 + 2;
+                let xMove = (Math.random() - 0.5) * 300;
+                
+                confetti.animate([
+                    { transform: 'translateY(0px) translateX(0px) rotate(0deg)', opacity: 1 },
+                    { transform: `translateY(${window.innerHeight + 20}px) translateX(${xMove}px) rotate(360deg)`, opacity: 0 }
+                ], {
+                    duration: duration * 1000,
+                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                });
+
+                setTimeout(() => confetti.remove(), duration * 1000);
+            }
+        }
+
+        // Auto-trigger confetti on load
+        window.addEventListener('load', () => {
+            setTimeout(triggerConfetti, 500);
+        });
+    </script>
+</body>
+</html>
