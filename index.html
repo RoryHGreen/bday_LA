@@ -53,6 +53,51 @@
             height: 30px;
         }
 
+        /* Tooltip Bubble */
+        .tooltip-bubble {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: #FF69B4;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 20px;
+            font-size: 0.95em;
+            font-weight: bold;
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 998;
+            animation: pulse 2s infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tooltip-bubble:hover {
+            transform: scale(1.05);
+            background: #FF1493;
+        }
+
+        .tooltip-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 15px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 0px solid transparent;
+            border-top: 8px solid #FF69B4;
+        }
+
+        .tooltip-bubble:hover::after {
+            border-top-color: #FF1493;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
         /* Tab Navigation */
         .tabs {
             display: flex;
@@ -329,6 +374,11 @@
                 padding: 10px 20px;
                 font-size: 1em;
             }
+
+            .tooltip-bubble {
+                font-size: 0.85em;
+                padding: 10px 15px;
+            }
         }
     </style>
 </head>
@@ -339,6 +389,11 @@
         <audio id="bgMusic" loop>
             <source src="01%20i%20want%20your%20love%20(dimitri%20from%20paris%20remi.mp3" type="audio/mpeg">
         </audio>
+    </div>
+
+    <!-- Tooltip Bubble -->
+    <div class="tooltip-bubble" onclick="toggleAudio()">
+        🎵 Click me to play groovy tunes!
     </div>
 
     <!-- Tab Navigation -->
