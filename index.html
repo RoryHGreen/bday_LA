@@ -249,9 +249,29 @@
         }
 
         .gift-box {
+            appearance: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
             font-size: 8em;
             animation: bounce 1s infinite;
             margin-bottom: 30px;
+            padding: 0;
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        .gift-box:hover,
+        .gift-box:focus-visible {
+            filter: drop-shadow(0 0 18px rgba(255, 215, 0, 0.85));
+            outline: none;
+        }
+
+        .gift-hint {
+            color: #FFD700;
+            font-size: 1.1em;
+            font-weight: bold;
+            margin: -10px 0 25px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.35);
         }
 
         .gift-text {
@@ -261,6 +281,103 @@
             background: rgba(255, 255, 255, 0.1);
             padding: 30px;
             border-radius: 10px;
+        }
+
+        /* Ardennes Gift Reveal */
+        .trip-page.active {
+            justify-content: flex-start;
+        }
+
+        .trip-container {
+            color: #fff;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .trip-hero {
+            align-items: flex-end;
+            background:
+                linear-gradient(180deg, rgba(16, 28, 35, 0.18) 0%, rgba(16, 28, 35, 0.8) 100%),
+                url('assets/ardennes-weekend.png') center/cover;
+            border-radius: 12px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+            display: flex;
+            min-height: 430px;
+            overflow: hidden;
+            padding: 36px;
+            text-align: left;
+        }
+
+        .trip-hero-content {
+            max-width: 760px;
+        }
+
+        .trip-kicker {
+            color: #FFD700;
+            font-size: 1em;
+            font-weight: bold;
+            letter-spacing: 0;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .trip-hero h2 {
+            font-size: clamp(2.2em, 7vw, 4.8em);
+            line-height: 1;
+            margin-bottom: 16px;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.55);
+        }
+
+        .trip-hero p {
+            font-size: clamp(1.1em, 2.5vw, 1.5em);
+            line-height: 1.5;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.65);
+        }
+
+        .trip-grid {
+            display: grid;
+            gap: 18px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            margin-top: 24px;
+            text-align: left;
+        }
+
+        .trip-card {
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+        }
+
+        .trip-card h3 {
+            color: #FFD700;
+            font-size: 1.35em;
+            margin-bottom: 12px;
+        }
+
+        .trip-card p {
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        .trip-note {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 8px;
+            color: #263238;
+            font-size: 1.25em;
+            font-weight: bold;
+            line-height: 1.5;
+            margin-top: 24px;
+            padding: 24px;
+        }
+
+        .trip-actions {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            margin-top: 24px;
+            flex-wrap: wrap;
         }
 
         /* Extra Page */
@@ -448,6 +565,23 @@
                 max-width: 100%;
                 height: auto;
             }
+
+            .gift-box {
+                font-size: 6em;
+            }
+
+            .trip-hero {
+                min-height: 360px;
+                padding: 24px;
+            }
+
+            .trip-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trip-note {
+                font-size: 1.05em;
+            }
         }
     </style>
 </head>
@@ -467,10 +601,10 @@
 
     <!-- Tab Navigation -->
     <div class="tabs">
-        <button class="tab-button active" onclick="showPage('home')">🎉 Home</button>
-        <button class="tab-button" onclick="showPage('photos')">📸 Photos</button>
-        <button class="tab-button" onclick="showPage('gift')">🎁 Birthday Gift</button>
-        <button class="tab-button" onclick="showPage('extra')">✨ Extra</button>
+        <button class="tab-button active" data-page="home" onclick="showPage('home', this)">🎉 Home</button>
+        <button class="tab-button" data-page="photos" onclick="showPage('photos', this)">📸 Photos</button>
+        <button class="tab-button" data-page="gift" onclick="showPage('gift', this)">🎁 Birthday Gift</button>
+        <button class="tab-button" data-page="extra" onclick="showPage('extra', this)">✨ Extra</button>
     </div>
 
     <!-- Home Page -->
@@ -553,11 +687,50 @@
     <div id="gift" class="page">
         <div class="gift-container">
             <h2 style="color: #fff; font-size: 3em; margin-bottom: 20px;">🎁 Birthday Gift</h2>
-            <div class="gift-box">🎁</div>
+            <button class="gift-box" type="button" onclick="showPage('ardennes')"
+                aria-label="Open Laura's birthday gift">🎁</button>
+            <div class="gift-hint">Click the present to unwrap it</div>
             <div class="gift-text">
                 <p>You deserve all the happiness in the world! 💖</p>
                 <p>This special day is all about celebrating YOU and everything that makes you amazing! 🌟</p>
                 <p>Hope this birthday brings you joy, laughter, and unforgettable memories! 🎉</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ardennes Gift Reveal Page -->
+    <div id="ardennes" class="page trip-page">
+        <div class="trip-container">
+            <div class="trip-hero">
+                <div class="trip-hero-content">
+                    <div class="trip-kicker">Your real birthday gift</div>
+                    <h2>A weekend in the Ardennes</h2>
+                    <p>Pack something cozy. We are going to Belgium for forest walks, quiet villages, river views, good food, and a whole weekend away together.</p>
+                </div>
+            </div>
+
+            <div class="trip-grid">
+                <div class="trip-card">
+                    <h3>🌲 The Escape</h3>
+                    <p>A weekend surrounded by Ardennes forests, hills, rivers, and the kind of quiet that makes everything feel slower.</p>
+                </div>
+                <div class="trip-card">
+                    <h3>🥐 The Plan</h3>
+                    <p>Cozy mornings, long walks, little Belgian towns, nice dinners, and absolutely no rushing unless there is dessert involved.</p>
+                </div>
+                <div class="trip-card">
+                    <h3>💛 The Point</h3>
+                    <p>Time just for us: a proper birthday adventure and another memory to add to all the ones we already have.</p>
+                </div>
+            </div>
+
+            <div class="trip-note">
+                Happy birthday my baby. Your gift is a weekend trip to the Ardennes in Belgium, with me, very soon.
+            </div>
+
+            <div class="trip-actions">
+                <button class="fun-button" onclick="triggerConfetti()">🎊 Celebrate! 🎊</button>
+                <button class="fun-button" onclick="showPage('gift')">🎁 Back to Gift</button>
             </div>
         </div>
     </div>
@@ -634,7 +807,7 @@
         }
 
         // Show/hide pages
-        function showPage(pageId) {
+        function showPage(pageId, navButton = null) {
             // Hide all pages
             const pages = document.querySelectorAll('.page');
             pages.forEach(page => page.classList.remove('active'));
@@ -646,8 +819,12 @@
             // Show selected page
             document.getElementById(pageId).classList.add('active');
 
-            // Add active class to clicked button
-            event.target.classList.add('active');
+            // Add active class to the matching nav button
+            const activePage = pageId === 'ardennes' ? 'gift' : pageId;
+            const activeButton = navButton || document.querySelector(`.tab-button[data-page="${activePage}"]`);
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
 
             // Trigger confetti when changing pages (optional)
             if (pageId !== 'home') {
@@ -658,6 +835,8 @@
             if (pageId === 'extra') {
                 initializeSnakeGame();
             }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // ==================== CONFETTI ====================
