@@ -416,6 +416,41 @@
             padding: 24px;
         }
 
+        .airbnb-note {
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1.25em;
+            line-height: 1.5;
+            margin-top: 24px;
+            padding: 24px;
+        }
+
+        .airbnb-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+            margin-top: 18px;
+        }
+
+        .airbnb-links a {
+            background: #FFD700;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            color: #333;
+            font-weight: bold;
+            padding: 12px 24px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .airbnb-links a:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+
         .trip-actions {
             display: flex;
             gap: 14px;
@@ -762,8 +797,8 @@
             <div class="trip-hero">
                 <div class="trip-hero-content">
                     <div class="trip-kicker">Your real birthday gift</div>
-                    <h2>A weekend in the Ardennes</h2>
-                    <p>Pack something cozy. We are going to Belgium for forest walks, quiet villages, river views, good food, and a whole weekend away together.</p>
+                    <h2>Finally a weekend in the Ardennes</h2>
+                    <p>We are going on some forest walks, see quiet villages, river views, good food, and a whole weekend away together.</p>
                 </div>
             </div>
 
@@ -774,20 +809,30 @@
                 </div>
                 <div class="trip-card">
                     <h3>🥐 The Plan</h3>
-                    <p>Cozy mornings, long walks, little Belgian towns, nice dinners, and absolutely no rushing unless there is dessert involved.</p>
+                    <p>Cozy mornings cuddling, long walks, little Belgian towns, nice dinners (michelin?), and absolutely no rushing unless there is sweet treats involved.</p>
                 </div>
                 <div class="trip-card">
                     <h3>💛 The Point</h3>
-                    <p>Time just for us: a proper birthday adventure and another memory to add to all the ones we already have.</p>
+                    <p>Time for us: a proper birthday adventure and another memory to add to all the ones we already have.</p>
                 </div>
             </div>
 
             <div class="trip-note">
-                Happy birthday my baby. Your gift is a weekend trip to the Ardennes in Belgium, with me, very soon.
+                Happy birthday amore mio. Your gift is a weekend trip to the Ardennes in Belgium, with me, finally heheh.
+            </div>
+
+            <div class="airbnb-note">
+                Cute Airbnbs with jacuzzi (praying for a sunny weekend haha). One is even in an old train!!
+                <div class="airbnb-links">
+                    <a href="https://www.airbnb.com/rooms/599867120056612766?adults=2&amp;search_mode=regular_search&amp;check_in=2026-10-02&amp;check_out=2026-10-04&amp;children=0&amp;infants=0&amp;pets=0&amp;source_impression_id=p3_1778789262_P3UPFXBO0CcdohEm&amp;previous_page_section_name=1000&amp;federated_search_id=3e4f4487-0623-4979-92cc-c9d9dda8df95" target="_blank" rel="noopener noreferrer">🏡 Airbnb Option 1</a>
+                    <a href="https://www.airbnb.com/rooms/741644804385743354?adults=2&amp;search_mode=regular_search&amp;check_in=2026-10-09&amp;check_out=2026-10-11&amp;children=0&amp;infants=0&amp;pets=0&amp;photo_id=1511727849&amp;source_impression_id=p3_1778789262_P3VJsYlzGDW-JJ8T&amp;previous_page_section_name=1000&amp;federated_search_id=3e4f4487-0623-4979-92cc-c9d9dda8df95" target="_blank" rel="noopener noreferrer">🚂 Airbnb Option 2</a>
+                </div>
             </div>
 
             <div class="trip-actions">
                 <button class="fun-button" onclick="triggerConfetti()">🎊 Celebrate! 🎊</button>
+                <a class="fun-button" href="https://helpanimals.be/adopter-un-animal/animaux-a-adopter.htm?lng=fr"
+                    target="_blank" rel="noopener noreferrer">🎁 Extra Gift</a>
                 <button class="fun-button" onclick="showPage('gift')">🎁 Back to Gift</button>
             </div>
         </div>
