@@ -283,6 +283,50 @@
             border-radius: 10px;
         }
 
+        /* Kiss Reveal Page */
+        .kiss-container {
+            color: #fff;
+            max-width: 760px;
+            text-align: center;
+        }
+
+        .kiss-title {
+            color: #FFD700;
+            font-size: clamp(2.4em, 8vw, 5em);
+            line-height: 1;
+            margin-bottom: 24px;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.45);
+        }
+
+        .kiss-lips {
+            appearance: none;
+            animation: pulse 1.4s infinite;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: clamp(7em, 22vw, 13em);
+            line-height: 1;
+            margin: 5px 0 24px;
+            padding: 0;
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        .kiss-lips:hover,
+        .kiss-lips:focus-visible {
+            filter: drop-shadow(0 0 22px rgba(255, 105, 180, 0.9));
+            outline: none;
+        }
+
+        .kiss-instruction {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 10px;
+            color: #fff;
+            font-size: clamp(1.4em, 4vw, 2.1em);
+            font-weight: bold;
+            line-height: 1.4;
+            padding: 24px;
+        }
+
         /* Ardennes Gift Reveal */
         .trip-page.active {
             justify-content: flex-start;
@@ -570,6 +614,10 @@
                 font-size: 6em;
             }
 
+            .kiss-instruction {
+                padding: 20px;
+            }
+
             .trip-hero {
                 min-height: 360px;
                 padding: 24px;
@@ -687,7 +735,7 @@
     <div id="gift" class="page">
         <div class="gift-container">
             <h2 style="color: #fff; font-size: 3em; margin-bottom: 20px;">🎁 Birthday Gift</h2>
-            <button class="gift-box" type="button" onclick="showPage('ardennes')"
+            <button class="gift-box" type="button" onclick="showPage('kiss')"
                 aria-label="Open Laura's birthday gift">🎁</button>
             <div class="gift-hint">Click the present to unwrap it</div>
             <div class="gift-text">
@@ -695,6 +743,16 @@
                 <p>This special day is all about celebrating YOU and everything that makes you amazing! 🌟</p>
                 <p>Hope this birthday brings you joy, laughter, and unforgettable memories! 🎉</p>
             </div>
+        </div>
+    </div>
+
+    <!-- Kiss Reveal Page -->
+    <div id="kiss" class="page">
+        <div class="kiss-container">
+            <h2 class="kiss-title">SMOOCH A KISS FOR YOU</h2>
+            <button class="kiss-lips" type="button" onclick="showPage('ardennes')"
+                aria-label="Open Laura's real birthday gift">💋</button>
+            <div class="kiss-instruction">okay click the lips for your real gift baby!</div>
         </div>
     </div>
 
@@ -820,7 +878,7 @@
             document.getElementById(pageId).classList.add('active');
 
             // Add active class to the matching nav button
-            const activePage = pageId === 'ardennes' ? 'gift' : pageId;
+            const activePage = pageId === 'kiss' || pageId === 'ardennes' ? 'gift' : pageId;
             const activeButton = navButton || document.querySelector(`.tab-button[data-page="${activePage}"]`);
             if (activeButton) {
                 activeButton.classList.add('active');
